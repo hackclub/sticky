@@ -114,17 +114,19 @@
   if (!box || !out) return;
   var deadline = Date.UTC(2026, 8, 24, 12, 0, 0);   // Sep 24 2026, 8:00 AM EDT
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var last = '';
   function tick() {
     var ms = deadline - Date.now();
     if (ms <= 0) {
       box.classList.add('is-closed');
       box.querySelector('.countdown__label').textContent = 'submissions are closed';
+      clearInterval(timer);
       return;
     }
-    var s = Math.floor(ms / 1000);
-    var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
-    out.textContent = pad(h) + ':' + pad(m) + ':' + pad(sec);
-    setTimeout(tick, 1000 - (Date.now() % 1000));
+    var s = Math.ceil(ms / 1000);
+    var text = pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s % 3600 / 60)) + ':' + pad(s % 60);
+    if (text !== last) { out.textContent = text; last = text; }
   }
+  var timer = setInterval(tick, 250);
   tick();
 })();
