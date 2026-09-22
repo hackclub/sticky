@@ -96,3 +96,13 @@
     el.addEventListener('pointercancel', release);
   }
 })();
+
+(function () {
+  var pill = document.getElementById('india-pill');
+  if (!pill) return;
+  function show() { pill.hidden = false; document.body.classList.add('has-india'); }
+  if (/[?&]in=1\b/.test(location.search)) return show();
+  fetch('/api/geo').then(function (r) { return r.json(); }).then(function (d) {
+    if (d && d.country === 'IN') show();
+  }).catch(function () {});
+})();

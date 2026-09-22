@@ -1,0 +1,1 @@
+{"version":"0.0.1","configurations":[{"name":"sticky-site","runtimeExecutable":"python3","runtimeArgs":["-m","http.server","8732","--directory","/Users/anscg/sticky/sticky-ysws"],"port":8732}]}
