@@ -36,7 +36,8 @@
   stickers.forEach(function (st, i) {
     var img = document.createElement('img');
     img.className = 'loose';
-    img.src = 'assets/' + st.src + '.png';
+    img.src = 'assets/' + st.src + '.webp';
+    img.decoding = 'async';
     img.alt = '';
     img.draggable = false;
     if (st.desktopOnly) img.setAttribute('data-desktop-only', '');

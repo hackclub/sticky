@@ -118,10 +118,6 @@ body::before {
   padding: .45em 1.1em;
   font-size: clamp(13px, 1.15 * var(--u), 22px);
   font-weight: 500;
-  color: #1a1a1a;
-  background: linear-gradient(90deg, #ff9933 0 .9em, #fff .9em calc(100% - .9em), #138808 calc(100% - .9em));
-  background-clip: padding-box;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
 }
 .pill--india[hidden] { display: none; }
 body.has-india .columns { margin-top: clamp(20px, 1.8 * var(--u), 34px); }
