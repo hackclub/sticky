@@ -107,3 +107,24 @@
     if (d && d.country === 'IN') show();
   }).catch(function () {});
 })();
+
+(function () {
+  var box = document.getElementById('countdown');
+  var out = document.getElementById('countdown-time');
+  if (!box || !out) return;
+  var deadline = Date.UTC(2026, 8, 24, 12, 0, 0);   // Sep 24 2026, 8:00 AM EDT
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  function tick() {
+    var ms = deadline - Date.now();
+    if (ms <= 0) {
+      box.classList.add('is-closed');
+      box.querySelector('.countdown__label').textContent = 'submissions are closed';
+      return;
+    }
+    var s = Math.floor(ms / 1000);
+    var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    out.textContent = pad(h) + ':' + pad(m) + ':' + pad(sec);
+    setTimeout(tick, 1000 - (Date.now() % 1000));
+  }
+  tick();
+})();

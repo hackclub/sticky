@@ -325,6 +325,24 @@ body.has-india .columns { margin-top: clamp(20px, 1.8 * var(--u), 34px); }
 .loose.is-settling { transition: transform .35s cubic-bezier(.34, 1.4, .5, 1); }
 @media (max-width: 900px) { .loose { --w: calc(var(--wm)) !important; } .loose[data-desktop-only] { display: none; } }
 
+.countdown {
+  position: fixed; left: 50%; top: clamp(10px, 1.2 * var(--u), 22px); transform: translateX(-50%); z-index: 6;
+  display: flex; align-items: center; gap: .55em;
+  padding: .45em 1.1em .5em;
+  border-radius: 100px;
+  background: var(--white);
+  color: var(--red);
+  font-size: clamp(13px, 1 * var(--u), 19px);
+  font-weight: 600; letter-spacing: -.01em; line-height: 1; white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+.countdown__time {
+  font-weight: 700; font-size: 1.15em;
+  font-variant-numeric: tabular-nums;
+  min-width: 5.2ch;
+}
+.countdown.is-closed .countdown__time { display: none; }
+
 .foot {
   margin-top: clamp(20px, 2 * var(--u), 40px);
   display: flex; gap: .6em; justify-content: center; flex-wrap: wrap;
@@ -341,6 +359,7 @@ body.has-india .columns { margin-top: clamp(20px, 1.8 * var(--u), 34px); }
 
 @media (max-width: 900px) {
   :root { --gutter: clamp(16px, 5vw, 40px); }
+  .page { padding-top: 64px; }
   .columns { grid-template-columns: 1fr; row-gap: 44px; column-gap: 0; }
   .col--get { max-width: 560px; width: 100%; margin: 0 auto; }
   .col--make { max-width: 560px; width: 100%; margin: 0 auto; }
