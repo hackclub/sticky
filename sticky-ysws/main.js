@@ -112,7 +112,7 @@
   var box = document.getElementById('countdown');
   var out = document.getElementById('countdown-time');
   if (!box || !out) return;
-  var deadline = Date.UTC(2026, 8, 24, 12, 0, 0);   // Sep 24 2026, 8:00 AM EDT
+  var deadline = Date.UTC(2026, 8, 24, 14, 0, 0);   // Sep 24 2026, 10:00 AM EDT
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
   var last = '';
   function tick() {
